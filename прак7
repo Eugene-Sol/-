@@ -1,0 +1,21 @@
+fn draw_christmas_tree(triangle_count: u32) {
+    let mut total_rows = 1; // Початкова кількість рядків для першого трикутника
+
+    for i in 0..triangle_count {
+        // Генеруємо рядки для поточного трикутника
+        (0..total_rows).for_each(|row| {
+            // Відступи для центрованого малювання
+            let spaces = " ".repeat((total_rows - row - 1) as usize);
+            let stars = "*".repeat((2 * row + 1) as usize);
+            println!("{}{}", spaces, stars);
+        });
+
+        println!(); // Порожній рядок між трикутниками
+        total_rows += 2; // Збільшуємо кількість рядків для наступного трикутника
+    }
+}
+
+fn main() {
+    let triangle_count = 5; // Приклад: кількість трикутників
+    draw_christmas_tree(triangle_count);
+}
